@@ -84,7 +84,11 @@ button {
 .studio-index span,
 .strip-list span,
 .work-meta,
-.fact-list span,
+.section-label,
+.education-card > p:first-child,
+.experience-list article > p:first-child,
+.skill-grid span,
+.interest-grid span,
 .note-row > span {
   font-size: 0.72rem;
   font-weight: 650;
@@ -277,7 +281,11 @@ h1 {
 .studio-index span,
 .strip-list span,
 .work-meta,
-.fact-list span,
+.section-label,
+.education-card > p:first-child,
+.experience-list article > p:first-child,
+.skill-grid span,
+.interest-grid span,
 .note-row > span {
   color: rgba(23, 23, 20, 0.46);
 }
@@ -350,16 +358,15 @@ h1 {
 
 .work-table,
 .notes-list,
-.fact-list,
+.profile-section,
 .contact-lines {
   border-top: 1px solid rgba(23, 23, 20, 0.18);
 }
 
 .work-row,
 .note-row,
-.fact-list p,
-.contact-lines a,
-.contact-lines span {
+.profile-section,
+.contact-lines a {
   border-bottom: 1px solid rgba(23, 23, 20, 0.18);
 }
 
@@ -379,14 +386,18 @@ h1 {
 
 .work-row h2,
 .note-row h2,
-.fact-list p {
+.education-card h2,
+.experience-list h2,
+.interest-grid p {
   font-family: Georgia, "Times New Roman", serif;
   font-weight: 400;
 }
 
 [data-language="zh"] .work-row h2,
 [data-language="zh"] .note-row h2,
-[data-language="zh"] .fact-list p {
+[data-language="zh"] .education-card h2,
+[data-language="zh"] .experience-list h2,
+[data-language="zh"] .interest-grid p {
   font-family:
     "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, "Times New Roman", serif;
 }
@@ -416,26 +427,115 @@ h1 {
   grid-template-columns: minmax(0, 1fr);
 }
 
-.fact-list {
+.profile-section {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: minmax(150px, 0.24fr) minmax(0, 1fr);
+  gap: clamp(28px, 5vw, 84px);
+  padding: 34px 0;
 }
 
-.fact-list p {
+.section-label {
+  padding-top: 0.28rem;
+}
+
+.education-card,
+.experience-list article {
   display: grid;
-  grid-template-columns: 54px 1fr;
-  gap: 18px;
-  min-height: 188px;
+  grid-template-columns: minmax(180px, 0.3fr) minmax(260px, 0.65fr) minmax(280px, 1fr);
+  gap: clamp(22px, 4vw, 54px);
+}
+
+.education-card p,
+.experience-list p,
+.skill-grid p {
+  margin-bottom: 0;
+}
+
+.education-card h2,
+.experience-list h2 {
+  margin-bottom: 0;
+  font-size: clamp(1.65rem, 2.6vw, 3.1rem);
+  line-height: 1.05;
+}
+
+.education-card h3,
+.experience-list h3 {
+  margin: 0;
+  color: rgba(23, 23, 20, 0.62);
+  font-size: 1rem;
+  font-weight: 520;
+  line-height: 1.55;
+}
+
+.education-card > p:last-child,
+.experience-list article > p:last-child {
+  grid-column: 3;
+  color: rgba(23, 23, 20, 0.66);
+  line-height: 1.65;
+}
+
+.interest-grid,
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+}
+
+.interest-grid p,
+.skill-grid p {
   margin: 0;
   padding: 28px 28px 28px 0;
   border-right: 1px solid rgba(23, 23, 20, 0.14);
-  font-size: clamp(1.65rem, 2.4vw, 2.8rem);
-  line-height: 1.1;
+  border-bottom: 1px solid rgba(23, 23, 20, 0.14);
 }
 
-.fact-list p:nth-child(2n) {
+.interest-grid p:nth-child(2n),
+.skill-grid p:nth-child(2n) {
   padding-left: 28px;
   border-right: 0;
+}
+
+.interest-grid p:nth-last-child(-n + 2),
+.skill-grid p:nth-last-child(-n + 2) {
+  border-bottom: 0;
+}
+
+.interest-grid p {
+  min-height: 148px;
+  font-size: clamp(1.45rem, 2.15vw, 2.5rem);
+  line-height: 1.12;
+}
+
+.skill-grid p {
+  min-height: 116px;
+  color: rgba(23, 23, 20, 0.72);
+  line-height: 1.55;
+}
+
+.interest-grid span,
+.skill-grid span {
+  display: block;
+  margin-bottom: 34px;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+.experience-list {
+  display: grid;
+  gap: 0;
+}
+
+.experience-list article {
+  padding: 0 0 30px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(23, 23, 20, 0.14);
+}
+
+.experience-list article:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: 0;
 }
 
 .note-row {
@@ -463,32 +563,17 @@ h1 {
 .contact-lines a,
 .contact-lines span {
   display: grid;
-  grid-template-columns: 1fr auto;
+  grid-template-columns: auto 1fr auto;
+  gap: 16px;
   align-items: center;
   min-height: 92px;
   color: #171714;
   font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.75rem, 3.2vw, 4rem);
+  font-size: clamp(1.55rem, 3vw, 3.5rem);
 }
 
-.contact-lines span {
-  color: rgba(23, 23, 20, 0.45);
-}
-
-.contact-lines .pending-contact {
-  grid-template-columns: auto 1fr;
-  justify-content: start;
-  gap: 12px;
-  min-height: 68px;
-  color: rgba(23, 23, 20, 0.46);
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
-  font-size: 0.95rem;
-}
-
-.pending-contact svg {
-  color: rgba(23, 23, 20, 0.36);
+.contact-lines svg {
+  color: rgba(23, 23, 20, 0.48);
 }
 
 @media (max-width: 1180px) and (min-width: 981px) {
@@ -535,8 +620,16 @@ h1 {
 
   .home-hero,
   .page-intro,
-  .work-row {
+  .work-row,
+  .profile-section,
+  .education-card,
+  .experience-list article {
     grid-template-columns: 1fr;
+  }
+
+  .education-card > p:last-child,
+  .experience-list article > p:last-child {
+    grid-column: auto;
   }
 
   .home-hero {
@@ -571,15 +664,23 @@ h1 {
     border-bottom: 0;
   }
 
-  .fact-list {
+  .interest-grid,
+  .skill-grid {
     grid-template-columns: 1fr;
   }
 
-  .fact-list p,
-  .fact-list p:nth-child(2n) {
-    min-height: 142px;
+  .interest-grid p,
+  .interest-grid p:nth-child(2n),
+  .skill-grid p,
+  .skill-grid p:nth-child(2n) {
     padding-left: 0;
     border-right: 0;
+    border-bottom: 1px solid rgba(23, 23, 20, 0.14);
+  }
+
+  .interest-grid p:last-child,
+  .skill-grid p:last-child {
+    border-bottom: 0;
   }
 }
 
@@ -636,17 +737,21 @@ h1 {
     gap: 12px;
   }
 
-  .fact-list p {
-    grid-template-columns: 42px 1fr;
-    font-size: clamp(1.6rem, 7vw, 2.25rem);
+  .interest-grid p {
+    min-height: 118px;
+    font-size: clamp(1.45rem, 7vw, 2.25rem);
   }
 
   .contact-lines a,
   .contact-lines span {
-    grid-template-columns: 1fr;
+    grid-template-columns: auto 1fr;
     gap: 12px;
     min-height: 110px;
     overflow-wrap: anywhere;
+  }
+
+  .contact-lines a > svg:last-child {
+    display: none;
   }
 }
 
