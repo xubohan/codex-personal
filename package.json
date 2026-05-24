@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite --host 0.0.0.0",
-    "build": "tsc --noEmit && vite build && cp dist/index.html dist/404.html",
+    "build": "tsc --noEmit && vite build && cp dist/index.html dist/404.html && mkdir -p dist/work dist/about dist/notes dist/contact && cp dist/index.html dist/work/index.html && cp dist/index.html dist/about/index.html && cp dist/index.html dist/notes/index.html && cp dist/index.html dist/contact/index.html",
     "preview": "vite preview --host 0.0.0.0"
   },
   "dependencies": {
