@@ -1,8 +1,8 @@
 :root {
-  color: #171714;
-  background: #f4f0e8;
+  color: #101315;
+  background: #f5f7f4;
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Arial, Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
     sans-serif;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -21,18 +21,20 @@ body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: #f4f0e8;
+  background: #f5f7f4;
 }
 
 body::before {
   position: fixed;
   inset: 0;
+  z-index: -1;
   pointer-events: none;
   content: "";
-  opacity: 0.44;
   background:
-    linear-gradient(rgba(23, 23, 20, 0.035) 1px, transparent 1px) 0 0 / 100% 128px,
-    radial-gradient(circle at 82% 18%, rgba(81, 103, 91, 0.13), transparent 28rem);
+    linear-gradient(90deg, rgba(16, 19, 21, 0.04) 1px, transparent 1px) 0 0 /
+      112px 100%,
+    linear-gradient(rgba(16, 19, 21, 0.04) 1px, transparent 1px) 0 0 / 100%
+      112px;
 }
 
 a {
@@ -56,24 +58,25 @@ button {
   z-index: 10;
   display: grid;
   grid-template-columns: minmax(150px, 1fr) auto auto;
-  gap: 20px;
+  gap: 22px;
   align-items: center;
   padding: 18px clamp(18px, 4vw, 56px);
-  border-bottom: 1px solid rgba(23, 23, 20, 0.14);
-  background: rgba(244, 240, 232, 0.84);
+  border-bottom: 1px solid rgba(16, 19, 21, 0.16);
+  background: rgba(245, 247, 244, 0.88);
   backdrop-filter: blur(18px);
 }
 
 .brand {
   display: inline-flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 3px;
   width: fit-content;
 }
 
 .brand span:first-child {
-  font-family: Georgia, "Times New Roman", serif;
   font-size: 1.18rem;
+  font-weight: 520;
+  letter-spacing: 0;
 }
 
 .brand span:last-child,
@@ -91,28 +94,37 @@ button {
 .interest-grid span,
 .note-row > span {
   font-size: 0.72rem;
-  font-weight: 650;
-  letter-spacing: 0;
+  font-weight: 700;
+  letter-spacing: 0.04em;
   text-transform: uppercase;
 }
 
-.brand span:last-child {
-  color: rgba(23, 23, 20, 0.54);
+.brand span:last-child,
+.studio-index span,
+.strip-list span,
+.work-meta,
+.section-label,
+.education-card > p:first-child,
+.experience-list article > p:first-child,
+.skill-grid span,
+.interest-grid span,
+.note-row > span {
+  color: rgba(16, 19, 21, 0.5);
 }
 
 .nav {
   display: flex;
-  gap: 26px;
+  gap: 34px;
 }
 
 .nav a {
-  color: rgba(23, 23, 20, 0.56);
+  color: rgba(16, 19, 21, 0.58);
   transition: color 160ms ease;
 }
 
 .nav a.active,
 .nav a:hover {
-  color: #171714;
+  color: #101315;
 }
 
 .lang-button {
@@ -122,19 +134,20 @@ button {
   gap: 8px;
   min-height: 38px;
   padding: 0 12px;
-  border: 1px solid rgba(23, 23, 20, 0.18);
+  border: 1px solid rgba(16, 19, 21, 0.2);
   background: transparent;
   cursor: pointer;
 }
 
 .lang-button:hover {
-  background: #171714;
-  color: #f4f0e8;
+  background: #101315;
+  color: #f5f7f4;
 }
 
 .page {
-  min-height: calc(100vh - 76px);
-  padding: clamp(52px, 8vw, 112px) clamp(18px, 4vw, 56px) clamp(72px, 9vw, 128px);
+  min-height: calc(100vh - 75px);
+  padding: clamp(58px, 7vw, 104px) clamp(18px, 4vw, 56px)
+    clamp(72px, 9vw, 128px);
 }
 
 .home-page,
@@ -145,10 +158,10 @@ button {
 
 .home-hero {
   display: grid;
-  grid-template-columns: 150px minmax(0, 1fr) minmax(260px, 360px);
-  gap: clamp(28px, 5vw, 84px);
-  align-items: end;
-  min-height: min(720px, calc(100vh - 188px));
+  grid-template-columns: 112px minmax(0, 1fr) minmax(330px, 420px);
+  gap: clamp(36px, 5.2vw, 72px);
+  align-items: center;
+  min-height: min(780px, calc(100vh - 164px));
 }
 
 .issue-mark {
@@ -156,85 +169,89 @@ button {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding-top: 6px;
-  border-right: 1px solid rgba(23, 23, 20, 0.16);
+  padding-top: 8px;
+  border-right: 2px solid #101315;
 }
 
 .issue-mark span:first-child {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(3.2rem, 6vw, 6.6rem);
-  line-height: 0.88;
+  font-size: clamp(4rem, 6.4vw, 6.4rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.02em;
 }
 
 .issue-mark span:last-child {
   max-width: 72px;
-  color: rgba(23, 23, 20, 0.5);
+  color: rgba(16, 19, 21, 0.52);
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
 
 .hero-copy {
-  max-width: 900px;
+  max-width: 940px;
 }
 
 .hero-copy .eyebrow {
-  margin-bottom: 30px;
+  margin-bottom: 26px;
 }
 
 .hero-copy h1 {
-  max-width: 11.6ch;
+  max-width: 13ch;
 }
 
 [data-language="zh"] .hero-copy h1 {
-  max-width: 10.6ch;
+  max-width: 9.3em;
+  font-size: clamp(3.15rem, 5vw, 5.45rem);
 }
 
 .eyebrow {
   margin: 0 0 24px;
-  color: #6f332d;
+  color: #7f2b23;
 }
 
 h1,
 h2,
+h3,
 p {
   margin-top: 0;
 }
 
 h1 {
-  max-width: 13ch;
-  margin-bottom: 32px;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(4rem, 8vw, 8.8rem);
-  font-weight: 400;
-  line-height: 0.94;
+  max-width: 14ch;
+  margin-bottom: 28px;
+  font-size: clamp(4.15rem, 6.9vw, 7.6rem);
+  font-weight: 560;
+  line-height: 0.92;
+  letter-spacing: -0.035em;
 }
 
 [data-language="zh"] h1 {
-  max-width: 11.5ch;
-  font-size: clamp(3.35rem, 6.5vw, 6.8rem);
-  line-height: 1.03;
+  max-width: 9.8em;
+  font-size: clamp(3.35rem, 5.8vw, 6.15rem);
+  font-weight: 600;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  word-break: keep-all;
+  overflow-wrap: anywhere;
 }
 
 .lede {
-  max-width: 720px;
+  max-width: 760px;
   margin-bottom: 0;
-  color: rgba(23, 23, 20, 0.68);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.15rem, 2vw, 1.72rem);
-  line-height: 1.44;
+  color: rgba(16, 19, 21, 0.7);
+  font-size: clamp(1.05rem, 1.45vw, 1.28rem);
+  line-height: 1.62;
 }
 
 [data-language="zh"] .lede {
-  font-family:
-    "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, "Times New Roman", serif;
-  line-height: 1.64;
+  line-height: 1.74;
 }
 
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  margin-top: 48px;
+  margin-top: 44px;
 }
 
 .text-link {
@@ -244,7 +261,8 @@ h1 {
   gap: 8px;
   min-height: 48px;
   padding: 0 18px;
-  border: 1px solid rgba(23, 23, 20, 0.22);
+  border: 1px solid rgba(16, 19, 21, 0.22);
+  color: #101315;
   transition:
     background 160ms ease,
     color 160ms ease,
@@ -253,65 +271,52 @@ h1 {
 
 .primary-link,
 .text-link:hover {
-  background: #171714;
-  color: #f4f0e8;
+  background: #101315;
+  color: #f5f7f4;
 }
 
 .primary-link:hover {
-  background: #51675b;
-  border-color: #51675b;
+  background: #27353a;
+  border-color: #27353a;
 }
 
 .studio-index {
   align-self: end;
-  border-top: 1px solid rgba(23, 23, 20, 0.18);
+  border-top: 2px solid #101315;
 }
 
 .studio-index p {
   display: grid;
-  grid-template-columns: 78px 1fr;
+  grid-template-columns: 82px 1fr;
   gap: 18px;
   margin: 0;
-  padding: 18px 0;
-  border-bottom: 1px solid rgba(23, 23, 20, 0.18);
-  color: rgba(23, 23, 20, 0.78);
-  line-height: 1.45;
-}
-
-.studio-index span,
-.strip-list span,
-.work-meta,
-.section-label,
-.education-card > p:first-child,
-.experience-list article > p:first-child,
-.skill-grid span,
-.interest-grid span,
-.note-row > span {
-  color: rgba(23, 23, 20, 0.46);
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(16, 19, 21, 0.22);
+  color: rgba(16, 19, 21, 0.78);
+  line-height: 1.48;
 }
 
 .strip-list {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  margin-top: clamp(64px, 8vw, 112px);
-  border-top: 1px solid rgba(23, 23, 20, 0.18);
-  border-bottom: 1px solid rgba(23, 23, 20, 0.18);
+  margin-top: clamp(66px, 8vw, 112px);
+  border-top: 1px solid rgba(16, 19, 21, 0.24);
+  border-bottom: 1px solid rgba(16, 19, 21, 0.24);
 }
 
 .strip-list p {
-  min-height: 166px;
+  min-height: 148px;
   margin: 0;
-  padding: 24px 28px 26px 0;
-  border-right: 1px solid rgba(23, 23, 20, 0.14);
-  color: rgba(23, 23, 20, 0.76);
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.2rem, 1.8vw, 1.72rem);
-  line-height: 1.22;
+  padding: 24px 30px 26px 0;
+  border-right: 1px solid rgba(16, 19, 21, 0.22);
+  color: rgba(16, 19, 21, 0.78);
+  font-size: clamp(1.22rem, 1.85vw, 1.72rem);
+  font-weight: 520;
+  line-height: 1.25;
+  letter-spacing: -0.018em;
 }
 
 [data-language="zh"] .strip-list p {
-  font-family:
-    "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, "Times New Roman", serif;
   line-height: 1.42;
 }
 
@@ -320,23 +325,21 @@ h1 {
 }
 
 .strip-list p:not(:first-child) {
-  padding-left: 28px;
+  padding-left: 30px;
 }
 
 .strip-list span {
   display: block;
   margin-bottom: 42px;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
+  letter-spacing: 0.04em;
 }
 
 .page-intro {
   display: grid;
-  grid-template-columns: minmax(150px, 0.24fr) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 84px);
+  grid-template-columns: minmax(150px, 0.22fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 84px);
   padding-bottom: clamp(54px, 7vw, 92px);
-  border-bottom: 1px solid rgba(23, 23, 20, 0.18);
+  border-bottom: 1px solid rgba(16, 19, 21, 0.24);
 }
 
 .page-intro .eyebrow {
@@ -344,12 +347,13 @@ h1 {
 }
 
 .page-intro h1 {
-  margin-bottom: 28px;
-  font-size: clamp(3.2rem, 6vw, 7rem);
+  margin-bottom: 26px;
+  font-size: clamp(3.4rem, 5.8vw, 6.9rem);
 }
 
 [data-language="zh"] .page-intro h1 {
-  font-size: clamp(2.9rem, 5.4vw, 5.8rem);
+  max-width: 9.4em;
+  font-size: clamp(2.95rem, 5vw, 5.55rem);
 }
 
 .page-intro .lede {
@@ -360,21 +364,21 @@ h1 {
 .notes-list,
 .profile-section,
 .contact-lines {
-  border-top: 1px solid rgba(23, 23, 20, 0.18);
+  border-top: 1px solid rgba(16, 19, 21, 0.24);
 }
 
 .work-row,
 .note-row,
 .profile-section,
 .contact-lines a {
-  border-bottom: 1px solid rgba(23, 23, 20, 0.18);
+  border-bottom: 1px solid rgba(16, 19, 21, 0.24);
 }
 
 .work-row {
   display: grid;
-  grid-template-columns: minmax(150px, 0.28fr) minmax(280px, 0.85fr) minmax(280px, 1fr);
-  gap: clamp(24px, 4vw, 64px);
-  padding: 32px 0;
+  grid-template-columns: minmax(150px, 0.28fr) minmax(300px, 0.85fr) minmax(280px, 1fr);
+  gap: clamp(26px, 4vw, 64px);
+  padding: 34px 0;
 }
 
 .work-meta {
@@ -389,27 +393,18 @@ h1 {
 .education-card h2,
 .experience-list h2,
 .interest-grid p {
-  font-family: Georgia, "Times New Roman", serif;
-  font-weight: 400;
-}
-
-[data-language="zh"] .work-row h2,
-[data-language="zh"] .note-row h2,
-[data-language="zh"] .education-card h2,
-[data-language="zh"] .experience-list h2,
-[data-language="zh"] .interest-grid p {
-  font-family:
-    "Songti SC", "STSong", "Noto Serif CJK SC", Georgia, "Times New Roman", serif;
+  font-weight: 560;
+  letter-spacing: -0.025em;
 }
 
 .work-row h2 {
   margin-bottom: 0;
-  font-size: clamp(1.85rem, 3vw, 3.45rem);
+  font-size: clamp(1.85rem, 3vw, 3.35rem);
   line-height: 1.02;
 }
 
 [data-language="zh"] .work-row h2 {
-  font-size: clamp(1.75rem, 2.8vw, 3rem);
+  font-size: clamp(1.78rem, 2.7vw, 2.9rem);
   line-height: 1.12;
 }
 
@@ -417,7 +412,7 @@ h1 {
 .note-row p,
 .contact-page .lede {
   margin-bottom: 0;
-  color: rgba(23, 23, 20, 0.66);
+  color: rgba(16, 19, 21, 0.68);
   font-size: 1rem;
   line-height: 1.65;
 }
@@ -429,8 +424,8 @@ h1 {
 
 .profile-section {
   display: grid;
-  grid-template-columns: minmax(150px, 0.24fr) minmax(0, 1fr);
-  gap: clamp(28px, 5vw, 84px);
+  grid-template-columns: minmax(150px, 0.22fr) minmax(0, 1fr);
+  gap: clamp(32px, 5vw, 84px);
   padding: 34px 0;
 }
 
@@ -441,8 +436,8 @@ h1 {
 .education-card,
 .experience-list article {
   display: grid;
-  grid-template-columns: minmax(180px, 0.3fr) minmax(260px, 0.65fr) minmax(280px, 1fr);
-  gap: clamp(22px, 4vw, 54px);
+  grid-template-columns: minmax(190px, 0.32fr) minmax(260px, 0.64fr) minmax(300px, 1fr);
+  gap: clamp(24px, 4vw, 56px);
 }
 
 .education-card p,
@@ -454,23 +449,23 @@ h1 {
 .education-card h2,
 .experience-list h2 {
   margin-bottom: 0;
-  font-size: clamp(1.65rem, 2.6vw, 3.1rem);
-  line-height: 1.05;
+  font-size: clamp(1.65rem, 2.5vw, 3rem);
+  line-height: 1.04;
 }
 
 .education-card h3,
 .experience-list h3 {
   margin: 0;
-  color: rgba(23, 23, 20, 0.62);
+  color: rgba(16, 19, 21, 0.64);
   font-size: 1rem;
-  font-weight: 520;
+  font-weight: 620;
   line-height: 1.55;
 }
 
 .education-card > p:last-child,
 .experience-list article > p:last-child {
   grid-column: 3;
-  color: rgba(23, 23, 20, 0.66);
+  color: rgba(16, 19, 21, 0.66);
   line-height: 1.65;
 }
 
@@ -484,14 +479,14 @@ h1 {
 .interest-grid p,
 .skill-grid p {
   margin: 0;
-  padding: 28px 28px 28px 0;
-  border-right: 1px solid rgba(23, 23, 20, 0.14);
-  border-bottom: 1px solid rgba(23, 23, 20, 0.14);
+  padding: 28px 30px 28px 0;
+  border-right: 1px solid rgba(16, 19, 21, 0.22);
+  border-bottom: 1px solid rgba(16, 19, 21, 0.22);
 }
 
 .interest-grid p:nth-child(2n),
 .skill-grid p:nth-child(2n) {
-  padding-left: 28px;
+  padding-left: 30px;
   border-right: 0;
 }
 
@@ -501,14 +496,14 @@ h1 {
 }
 
 .interest-grid p {
-  min-height: 148px;
-  font-size: clamp(1.45rem, 2.15vw, 2.5rem);
+  min-height: 142px;
+  font-size: clamp(1.45rem, 2.05vw, 2.35rem);
   line-height: 1.12;
 }
 
 .skill-grid p {
-  min-height: 116px;
-  color: rgba(23, 23, 20, 0.72);
+  min-height: 112px;
+  color: rgba(16, 19, 21, 0.72);
   line-height: 1.55;
 }
 
@@ -516,9 +511,6 @@ h1 {
 .skill-grid span {
   display: block;
   margin-bottom: 34px;
-  font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-    sans-serif;
 }
 
 .experience-list {
@@ -529,7 +521,7 @@ h1 {
 .experience-list article {
   padding: 0 0 30px;
   margin-bottom: 30px;
-  border-bottom: 1px solid rgba(23, 23, 20, 0.14);
+  border-bottom: 1px solid rgba(16, 19, 21, 0.18);
 }
 
 .experience-list article:last-child {
@@ -546,45 +538,46 @@ h1 {
 }
 
 .note-row svg {
-  color: #6f332d;
+  color: #7f2b23;
 }
 
 .note-row h2 {
-  max-width: 820px;
+  max-width: 920px;
   margin-bottom: 14px;
-  font-size: clamp(1.7rem, 2.6vw, 3.1rem);
+  font-size: clamp(1.72rem, 2.55vw, 3rem);
   line-height: 1.05;
 }
 
 [data-language="zh"] .note-row h2 {
-  line-height: 1.18;
+  line-height: 1.16;
 }
 
 .contact-lines a,
 .contact-lines span {
   display: grid;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 16px;
   align-items: center;
   min-height: 92px;
-  color: #171714;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: clamp(1.55rem, 3vw, 3.5rem);
+  color: #101315;
+  font-size: clamp(1.55rem, 3vw, 3.35rem);
+  font-weight: 560;
+  letter-spacing: -0.025em;
 }
 
 .contact-lines svg {
-  color: rgba(23, 23, 20, 0.48);
+  color: rgba(16, 19, 21, 0.48);
 }
 
 @media (max-width: 1180px) and (min-width: 981px) {
   .home-hero {
-    grid-template-columns: 116px minmax(0, 1fr);
+    grid-template-columns: 96px minmax(0, 1fr);
   }
 
   .studio-index {
     grid-column: 2;
-    width: min(100%, 680px);
-    margin-top: 16px;
+    width: min(100%, 720px);
+    margin-top: 18px;
   }
 
   .strip-list {
@@ -592,15 +585,20 @@ h1 {
   }
 
   .strip-list p {
-    min-height: 118px;
+    min-height: 112px;
     padding-left: 0;
     padding-right: 0;
     border-right: 0;
-    border-bottom: 1px solid rgba(23, 23, 20, 0.14);
+    border-bottom: 1px solid rgba(16, 19, 21, 0.22);
   }
 
   .strip-list p:last-child {
     border-bottom: 0;
+  }
+
+  .education-card,
+  .experience-list article {
+    grid-template-columns: minmax(160px, 0.32fr) minmax(240px, 0.7fr) minmax(260px, 1fr);
   }
 }
 
@@ -641,7 +639,7 @@ h1 {
   }
 
   .studio-index {
-    max-width: 560px;
+    max-width: 620px;
   }
 
   .page-intro .lede {
@@ -653,11 +651,11 @@ h1 {
   }
 
   .strip-list p {
-    min-height: 128px;
+    min-height: 120px;
     padding-left: 0;
     padding-right: 0;
     border-right: 0;
-    border-bottom: 1px solid rgba(23, 23, 20, 0.14);
+    border-bottom: 1px solid rgba(16, 19, 21, 0.22);
   }
 
   .strip-list p:last-child {
@@ -675,7 +673,7 @@ h1 {
   .skill-grid p:nth-child(2n) {
     padding-left: 0;
     border-right: 0;
-    border-bottom: 1px solid rgba(23, 23, 20, 0.14);
+    border-bottom: 1px solid rgba(16, 19, 21, 0.22);
   }
 
   .interest-grid p:last-child,
@@ -689,29 +687,33 @@ h1 {
     padding: 14px 16px;
   }
 
+  .brand span:first-child {
+    font-size: 1.08rem;
+  }
+
   .nav a,
   .lang-button {
     min-height: 34px;
   }
 
   .page {
-    padding: 42px 18px 68px;
+    padding: 46px 18px 68px;
   }
 
   h1,
   [data-language="zh"] h1 {
     max-width: 100%;
-    font-size: clamp(3rem, 13vw, 4.25rem);
-    line-height: 1.04;
+    font-size: clamp(3.05rem, 13vw, 4.2rem);
+    line-height: 1.02;
   }
 
   .page-intro h1,
   [data-language="zh"] .page-intro h1 {
-    font-size: clamp(2.65rem, 12vw, 3.8rem);
+    font-size: clamp(2.55rem, 11.6vw, 3.7rem);
   }
 
   .lede {
-    font-size: 1.08rem;
+    font-size: 1.03rem;
   }
 
   .hero-actions {
@@ -724,12 +726,16 @@ h1 {
   }
 
   .studio-index p {
-    grid-template-columns: 72px 1fr;
+    grid-template-columns: 68px minmax(0, 1fr);
   }
 
   .work-row h2,
   [data-language="zh"] .work-row h2 {
-    font-size: clamp(1.8rem, 9vw, 2.55rem);
+    font-size: clamp(1.8rem, 8.8vw, 2.5rem);
+  }
+
+  .work-meta {
+    overflow-wrap: anywhere;
   }
 
   .note-row {
@@ -738,15 +744,15 @@ h1 {
   }
 
   .interest-grid p {
-    min-height: 118px;
-    font-size: clamp(1.45rem, 7vw, 2.25rem);
+    min-height: 112px;
+    font-size: clamp(1.42rem, 6.8vw, 2.16rem);
   }
 
   .contact-lines a,
   .contact-lines span {
-    grid-template-columns: auto 1fr;
+    grid-template-columns: auto minmax(0, 1fr);
     gap: 12px;
-    min-height: 110px;
+    min-height: 104px;
     overflow-wrap: anywhere;
   }
 
